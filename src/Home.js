@@ -1,14 +1,14 @@
-import WorkoutList from "./WorkoutList";
+import FoodList from "./FoodList";
 import useFetch from './useFetch';
 
 const Home = () => {
-    const {data : workouts, isPending, error} = useFetch('http://localhost:8000/workouts');
+    const {data : foods, isPending, error} = useFetch('http://localhost:3000/foods?_sort=calories');
 
     return (
         <div className="home">
             {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>}
-        {workouts && <WorkoutList workouts={workouts} title="All Workouts!" />} 
+        {foods && <FoodList foods={foods} title="All Food Searches!" />} 
         {/*evals left side first, so it doesnt err on right side*/}
         
         </div>

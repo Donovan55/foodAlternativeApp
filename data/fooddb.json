@@ -1,0 +1,22 @@
+{
+    "foods": [
+        {
+            "id" : 1,
+            "brand": "Donovan's",
+            "product": "Donuts",
+            "calories" : 1,
+            "protein": 1,
+            "fats": 1,
+            "carbs": 1
+        },
+        {
+            "id" : 2,
+            "brand": "Elena's",
+            "product": "Eggs",
+            "calories" : 2,
+            "protein": 2,
+            "fats": 2,
+            "carbs": 2
+        }
+    ]
+}
