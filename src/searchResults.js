@@ -16,9 +16,8 @@ const searchResults = () => {
     return ( 
 
     
-
-
-     );
+    console.log("im in results!")
+    );
 }
  
 export default searchResults;

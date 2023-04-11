@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const FoodList = ({foods}) => {
     return ( 
         <div className="food-list">
+            
             {foods.map(food => (
                 <div className="food-preview" key={food.id} >
                     <Link to={`/foods/${food.id}`}>
