@@ -62,10 +62,16 @@ const Create = (searchTerm) => {
         console.log("Url is " + uri);
         setUri('http://localhost:3000/foods?_sort=calories' + `&q=${title}`)
         console.log("Url is " + uri);
+        setIsSubmitted(true);
         //uri = 'http://localhost:3000/foods?_sort=calories&q=egg';
     }
     
     
+    const HandleSortByProtein = () => {
+        //setUri('http://localhost:3000/foods?_sort=protein' + `&q=${title}`);
+        console.log("IMPROTEIN");
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         
@@ -103,9 +109,12 @@ const Create = (searchTerm) => {
                 {!isPending && <button onClick={() => HandleFoodSearch(title)}>Find me better options!</button>}
                 {isPending && <button disabled>Finding better options...</button>}
                 
-                {isSubmitted && <p>{title}</p>}
-                
-                {foods && <FoodList foods={foods} title="All Food Searches!" />} 
+                <p></p>
+                {isSubmitted && <button>Sort by Calories</button>}
+                {isSubmitted && <button onClick ={() => HandleSortByProtein()}>Sort by Protein</button>}
+                {isSubmitted && <button>Sort by Carbs</button>}
+                {isSubmitted && <button>Sort by Fats</button>}
+                {isSubmitted && foods && <FoodList foods={foods} title="All Food Searches!" />} 
                 
                 
             </form>

@@ -21,8 +21,11 @@ const FoodDetails = () => {
             {food && (
                 <article>
                     <h2>{food.product}</h2>
-                    <p>Created by {food.brand}</p>
-                    <div>{food.calories}</div>
+                    <p>Produced by {food.brand}</p>
+                    <div>Calories: {food.calories}</div>
+                    <div>Protein: {food.protein}</div>
+                    <div>Fats: {food.fats}</div>
+                    <div>Carbs: {food.carbs}</div>
                     <button onClick={handleClick}>Delete</button>
                 </article>
             )}
