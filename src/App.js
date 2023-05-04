@@ -4,9 +4,9 @@ import Navbar from './Navbar';
 import Home from './Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Create from './Create';
-import WorkoutDetails from './WorkoutDetails';
+import FoodDetails from './FoodDetails';
 import NotFound from './NotFound';
-
+//THIS IS FOR SUMMER
 
 function App() {
   const title = 'Welcome to the Workout Tracker';
@@ -22,8 +22,8 @@ function App() {
           <Route path="/create">
             <Create />
           </Route>
-          <Route path="/workouts/:id">
-            <WorkoutDetails />
+          <Route path="/foods/:id">
+            <FoodDetails />
           </Route>
           <Route path="*">
             <NotFound />

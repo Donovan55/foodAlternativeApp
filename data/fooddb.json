@@ -1,0 +1,67 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "brand": "Donovan's",
+      "product": "Donuts",
+      "calories": 1,
+      "protein": 1,
+      "fats": 1,
+      "carbs": 1
+    },
+    {
+      "id": 2,
+      "brand": "Elena's",
+      "product": "Eggs",
+      "calories": 2,
+      "protein": 2,
+      "fats": 2,
+      "carbs": 2
+    },
+    {
+      "brand": "CONCHAS",
+      "product": "BREAD",
+      "calories": 306,
+      "protein": 5.88,
+      "fats": 7.06,
+      "carbs": 51.8,
+      "id": 3
+    },
+    {
+      "brand": "GRATEFUL",
+      "product": "BREAD",
+      "calories": 263,
+      "protein": 7.89,
+      "fats": 0,
+      "carbs": 55.3,
+      "id": 4
+    },
+    {
+      "brand": "PANADERIA PAN DEL CIELO",
+      "product": "BREAD",
+      "calories": 357,
+      "protein": 10.7,
+      "fats": 5.36,
+      "carbs": 66.1,
+      "id": 5
+    },
+    {
+      "brand": "JOHANN'S BAKERY",
+      "product": "BREAD",
+      "calories": 146,
+      "protein": 3.57,
+      "fats": 0,
+      "carbs": 32.1,
+      "id": 6
+    },
+    {
+      "brand": "VILLAGE HEARTH",
+      "product": "BREAD",
+      "calories": 196,
+      "protein": 8.7,
+      "fats": 2.17,
+      "carbs": 43.5,
+      "id": 7
+    }
+  ]
+}
