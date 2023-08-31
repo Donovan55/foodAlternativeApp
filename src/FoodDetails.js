@@ -27,6 +27,7 @@ const FoodDetails = () => {
                     <div>Fats: {food.fats}</div>
                     <div>Carbs: {food.carbs}</div>
                     <button onClick={handleClick}>Delete</button>
+                    <button onClick={() => history.goBack()}>Go Back</button> {/* New Back Button */}
                 </article>
             )}
         </div>

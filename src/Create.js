@@ -15,6 +15,8 @@ const Create = (searchTerm) => {
     const [nutrition, setNutrition] = useState(<h2></h2>);
     //let uri = 'http://localhost:3000/foods?_sort=calories';
     const [uri, setUri] = useState('http://localhost:3000/foods?_sort=calories');
+    const[highestFirst, setHighestFirst] = useState(false);
+    const[sortingByWhat, setSortingByWhat] = useState('default');
     if(searchTerm)
     {
         //uri+= `&q=${searchTerm}`;
@@ -68,31 +70,74 @@ const Create = (searchTerm) => {
     
     
     const HandleSortByProtein = () => {
-        //setUri('http://localhost:3000/foods?_sort=protein' + `&q=${title}`);
-        console.log("IMPROTEIN");
+        if(highestFirst)
+        {
+            setUri('http://localhost:3000/foods?_sort=protein&_order=desc' + `&q=${title}`);
+        }
+        else
+        {
+            setUri('http://localhost:3000/foods?_sort=protein&_order=inc' + `&q=${title}`);
+        }
+        setSortingByWhat("Protein");
+        console.log("Sorting by Protein");
     }
+
+    const HandleSortByCalories = () => {
+        if(highestFirst)
+        {
+            setUri('http://localhost:3000/foods?_sort=calories&_order=desc' + `&q=${title}`);
+        }
+        else
+        {
+            setUri('http://localhost:3000/foods?_sort=calories&_order=inc' + `&q=${title}`);
+        }
+        setSortingByWhat("Calories");
+        console.log("Sorting by Cals");
+    }
+
+    const HandleSortByCarbs = () => {
+        if(highestFirst)
+        {
+            setUri('http://localhost:3000/foods?_sort=carbs&_order=desc' + `&q=${title}`);
+        }
+        else
+        {
+            setUri('http://localhost:3000/foods?_sort=carbs&_order=inc' + `&q=${title}`);
+        }
+        setSortingByWhat("Carbs");
+        console.log("Sorting by Carbs");
+    }
+
+    const HandleSortByFats = () => {
+        if(highestFirst)
+        {
+            setUri('http://localhost:3000/foods?_sort=fats&_order=desc' + `&q=${title}`);
+        }
+        else
+        {
+            setUri('http://localhost:3000/foods?_sort=fats&_order=inc' + `&q=${title}`);
+        }
+        setSortingByWhat("Fats");
+        console.log("Sorting by Fats");
+    }
+
+    const HandleHighestFirst = () => {
+        setHighestFirst(true);
+        console.log("Highest First");
+    }
+
+    const HandleLowestFirst = () => {
+        setHighestFirst(false);
+        console.log("Lowest First");
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        /*const workout = {title, body, creator}; 
-        setIsPending(true);
-        fetch('http://localhost:8000/workouts', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json"},
-            body: JSON.stringify(workout)
-        }).then(() => {
-            console.log('new workout added');
-            setIsPending(false);
-            setIsSubmitted(true);
-        }).then(() =>{
-            uri += `&q=${title}`;
-            console.log("uri updated");
-            //const {data : foods, isPending, error} = useFetch(uri);
-        })*/
     }
 
-
+    console.log('Component re-rendered');
     
     return ( 
         <div className="create">
@@ -109,11 +154,18 @@ const Create = (searchTerm) => {
                 {!isPending && <button onClick={() => HandleFoodSearch(title)}>Find me better options!</button>}
                 {isPending && <button disabled>Finding better options...</button>}
                 
+
+                
                 <p></p>
-                {isSubmitted && <button>Sort by Calories</button>}
-                {isSubmitted && <button onClick ={() => HandleSortByProtein()}>Sort by Protein</button>}
-                {isSubmitted && <button>Sort by Carbs</button>}
-                {isSubmitted && <button>Sort by Fats</button>}
+                {isSubmitted && <button onClick ={() => HandleHighestFirst()} className={`create-button ${highestFirst ? 'bold' : ''}`}>Highest First</button>}
+                {isSubmitted && <button onClick ={() => HandleLowestFirst()} className={`create-button ${!highestFirst ? 'bold' : ''}`}>Lowest First</button>}
+                
+                <p></p>
+                {isSubmitted && <button onClick ={() => HandleSortByCalories()} className={`create-button ${sortingByWhat == "Calories" ? 'bold' : ''}`}>Sort by Calories</button>}
+                {isSubmitted && <button onClick ={() => HandleSortByProtein()} className={`create-button ${sortingByWhat == "Protein" ? 'bold' : ''}`}>Sort by Protein</button>}
+                {isSubmitted && <button onClick ={() => HandleSortByCarbs()} className={`create-button ${sortingByWhat == "Carbs" ? 'bold' : ''}`}>Sort by Carbs</button>}
+                {isSubmitted && <button onClick ={() => HandleSortByFats()} className={`create-button ${sortingByWhat == "Fats" ? 'bold' : ''}`}>Sort by Fats</button>}
+                
                 {isSubmitted && foods && <FoodList foods={foods} title="All Food Searches!" />} 
                 
                 

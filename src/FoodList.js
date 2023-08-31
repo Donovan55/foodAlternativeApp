@@ -9,6 +9,7 @@ const FoodList = ({foods}) => {
                     <Link to={`/foods/${food.id}`}>
                         <h2>{food.brand} { food.product }</h2>
                         <p>Calories: {food.calories}</p>
+                        <p>Protein: {food.protein}</p>
                     </Link>
                     
                 </div>
