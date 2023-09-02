@@ -16,7 +16,7 @@ const Create = (searchTerm) => {
     //let uri = 'http://localhost:3000/foods?_sort=calories';
     const [uri, setUri] = useState('http://localhost:3000/foods?_sort=calories');
     const[highestFirst, setHighestFirst] = useState(false);
-    const[sortingByWhat, setSortingByWhat] = useState('default');
+    const[sortingByWhat, setSortingByWhat] = useState('Calories');
     if(searchTerm)
     {
         //uri+= `&q=${searchTerm}`;
@@ -34,6 +34,8 @@ const Create = (searchTerm) => {
             pagesize: 5,
         }
         const api_url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&pageSize=${encodeURIComponent(params.pagesize)}&api_key=${encodeURIComponent(params.api_key)}`
+        
+        
         async function getData() {
             return fetch(api_url)
             .then(response => response.json())
@@ -59,6 +61,11 @@ const Create = (searchTerm) => {
             });
 
         } 
+
+        
+    
+
+
         //Create(searchForm.searchTerm.value.trim());
         console.log("Search term is "+ title);
         console.log("Url is " + uri);
@@ -130,6 +137,27 @@ const Create = (searchTerm) => {
         setHighestFirst(false);
         console.log("Lowest First");
     }
+
+
+    useEffect(() => {
+        // Call the sorting function when highestFirst changes
+        if (sortingByWhat === 'Protein')
+        {
+            HandleSortByProtein();
+        }
+        else if (sortingByWhat === 'Calories')
+        {
+            HandleSortByCalories();
+        }
+        else if (sortingByWhat === 'Carbs')
+        {
+            HandleSortByCarbs();
+        }
+        else if (sortingByWhat === 'Fats')
+        {
+            HandleSortByFats();
+        }
+      }, [highestFirst]);
 
 
     const handleSubmit = (e) => {
