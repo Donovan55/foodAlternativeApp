@@ -31,7 +31,7 @@ const Create = (searchTerm) => {
             api_key: 'adGOkaniwDcX5OGdQwBKtAG4NnaCknGEsJrpcCX5',
             //query: 'cheddar cheese',
             //dataType: ["Survery (FNDDS)"],
-            pagesize: 5,
+            pagesize: 25,
         }
         const api_url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&pageSize=${encodeURIComponent(params.pagesize)}&api_key=${encodeURIComponent(params.api_key)}`
         
